@@ -1,0 +1,144 @@
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    width: 100%;
+}
+
+/* Header */
+.app-header {
+    padding: var(--spacing-md) 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: var(--blur-glass);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: slideIn 0.6s ease-out;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.01em;
+}
+
+.app-subtitle {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* Main Content */
+.app-main {
+    flex: 1;
+    padding: var(--spacing-2xl) 0;
+}
+
+.form-section {
+    margin-bottom: var(--spacing-2xl);
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-text-primary);
+}
+
+/* Error Card */
+.error-card {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: var(--spacing-xl);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: var(--color-poor);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.error-hint {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.error-hint code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: var(--color-accent-light);
+}
+
+/* Footer */
+.app-footer {
+    padding: var(--spacing-2xl) 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: var(--blur-glass);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    margin-top: auto;
+}
+
+.app-footer p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-header {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .app-title {
+        font-size: 1.3rem;
+    }
+
+    .app-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+}
