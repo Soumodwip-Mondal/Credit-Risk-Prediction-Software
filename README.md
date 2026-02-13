@@ -263,19 +263,6 @@ Based on model insights:
 
 **Interactive Docs:** http://localhost:8000/docs
 
----
-
-## 🚀 Deployment
-
-This project is deployment-ready with configurations for:
-
-- **Frontend (Vercel)**: Automatic builds, CDN distribution, global edge network
-- **Backend (Render)**: Auto-scaling, health checks, zero-downtime deployments
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
-
----
-
 ## 📝 Future Enhancements
 
 - [ ] **Ensemble Models**: Combine multiple algorithms for higher accuracy
