@@ -50,15 +50,23 @@ function App() {
     return (
         <div className="min-h-screen flex flex-col">
             {/* Header */}
-            <header className="sticky top-0 z-50 py-4 bg-black/50 backdrop-blur-glass border-b border-white/10 animate-slide-in">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center">
-                        <h1 className="text-2xl md:text-3xl font-bold mb-1 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
-                            💳 Credit Risk Predictor
-                        </h1>
-                        <p className="text-sm md:text-base text-white/75 font-normal">
-                            AI-Powered Credit Assessment
-                        </p>
+            <header className="sticky top-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/15 shadow-lg animate-slide-in">
+                <div className="max-w-7xl mx-auto px-6 py-5">
+                    <div className="flex items-center gap-4">
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl animate-pulse"></div>
+                            <div className="relative bg-gradient-to-br from-purple-600 to-blue-600 p-3 rounded-2xl shadow-lg">
+                                <span className="text-3xl">💳</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
+                                Credit Risk Predictor
+                            </h1>
+                            <p className="text-xs md:text-sm text-white/60 font-medium mt-0.5">
+                                AI-Powered Credit Assessment Platform
+                            </p>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -94,13 +102,51 @@ function App() {
             </main>
 
             {/* Footer */}
-            <footer className="mt-auto py-12 bg-black/20 backdrop-blur-glass border-t border-white/10 text-center">
-                <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-white/75 mb-2">Powered by Machine Learning • React + FastAPI</p>
-                    <p className="text-sm text-white/50 max-w-2xl mx-auto leading-relaxed">
-                        This tool uses advanced ML algorithms for credit risk assessment.
-                        Results are predictions and should be used as one factor in lending decisions.
-                    </p>
+            <footer className="mt-auto relative overflow-hidden bg-gradient-to-b from-black/40 to-black/80 backdrop-blur-xl border-t border-white/10">
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-purple-500/5 pointer-events-none"></div>
+
+                <div className="relative max-w-7xl mx-auto px-6 py-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        {/* Brand Section */}
+                        <div className="text-center md:text-left">
+                            <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+                                <div className="bg-gradient-to-br from-purple-600 to-blue-600 p-2 rounded-xl">
+                                    <span className="text-2xl">💳</span>
+                                </div>
+                                <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                                    Credit Risk Predictor
+                                </h3>
+                            </div>
+                            <p className="text-sm text-white/60 leading-relaxed max-w-xs mx-auto md:mx-0">
+                                Advanced ML algorithms for intelligent credit risk assessment and lending decisions.
+                            </p>
+                        </div>
+
+                        {/* Info Section */}
+                        <div className="text-center md:text-right">
+                            <h4 className="text-sm font-semibold text-white/80 mb-4 uppercase tracking-wider">Important Note</h4>
+                            <p className="text-xs text-white/50 leading-relaxed max-w-xs mx-auto md:ml-auto md:mr-0">
+                                Results are AI-generated predictions and should be used as one factor in comprehensive lending decisions.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Bottom Bar */}
+                    <div className="pt-6 border-t border-white/10">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                            <p className="text-xs text-white/40">
+                                © 2026 Credit Risk Predictor. All rights reserved.
+                            </p>
+                            <div className="flex items-center gap-4">
+                                <a href="#" className="text-xs text-white/40 hover:text-white/80 transition-colors duration-300">Privacy Policy</a>
+                                <span className="text-white/20">•</span>
+                                <a href="#" className="text-xs text-white/40 hover:text-white/80 transition-colors duration-300">Terms of Service</a>
+                                <span className="text-white/20">•</span>
+                                <a href="#" className="text-xs text-white/40 hover:text-white/80 transition-colors duration-300">Contact</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </div>

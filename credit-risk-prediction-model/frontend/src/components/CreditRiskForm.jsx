@@ -33,6 +33,7 @@ const CreditRiskForm = ({ onSubmit, loading }) => {
         : '0.00';
 
     const inputClasses = "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-inter text-base transition-all duration-300 outline-none focus:bg-white/10 focus:border-accent focus:ring-4 focus:ring-accent/20 placeholder:text-white/50";
+    const selectClasses = "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-inter text-base transition-all duration-300 outline-none focus:bg-white/10 focus:border-accent focus:ring-4 focus:ring-accent/20 [&>option]:bg-gray-900 [&>option]:text-white";
     const labelClasses = "block mb-2 text-white/75 text-sm font-medium tracking-wide";
 
     return (
@@ -184,7 +185,7 @@ const CreditRiskForm = ({ onSubmit, loading }) => {
                         value={formData.residence_type}
                         onChange={handleChange}
                         required
-                        className={inputClasses}
+                        className={selectClasses}
                     >
                         <option value="Owned">Owned</option>
                         <option value="Rented">Rented</option>
@@ -201,7 +202,7 @@ const CreditRiskForm = ({ onSubmit, loading }) => {
                         value={formData.loan_purpose}
                         onChange={handleChange}
                         required
-                        className={inputClasses}
+                        className={selectClasses}
                     >
                         <option value="Education">Education</option>
                         <option value="Home">Home</option>
@@ -219,7 +220,7 @@ const CreditRiskForm = ({ onSubmit, loading }) => {
                         value={formData.loan_type}
                         onChange={handleChange}
                         required
-                        className={inputClasses}
+                        className={selectClasses}
                     >
                         <option value="Secured">Secured</option>
                         <option value="Unsecured">Unsecured</option>
