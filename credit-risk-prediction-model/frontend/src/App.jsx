@@ -3,7 +3,6 @@ import CreditRiskForm from './components/CreditRiskForm';
 import ResultsDisplay from './components/ResultsDisplay';
 import InfoSection from './components/InfoSection';
 import { predictCreditRisk, healthCheck } from './services/api';
-import './App.css';
 
 function App() {
     const [results, setResults] = useState(null);
@@ -49,15 +48,15 @@ function App() {
     };
 
     return (
-        <div className="app">
+        <div className="min-h-screen flex flex-col">
             {/* Header */}
-            <header className="app-header">
-                <div className="container">
-                    <div className="header-content">
-                        <h1 className="app-title">
+            <header className="sticky top-0 z-50 py-4 bg-black/50 backdrop-blur-glass border-b border-white/10 animate-slide-in">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center">
+                        <h1 className="text-2xl md:text-3xl font-bold mb-1 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
                             💳 Credit Risk Predictor
                         </h1>
-                        <p className="app-subtitle">
+                        <p className="text-sm md:text-base text-white/75 font-normal">
                             AI-Powered Credit Assessment
                         </p>
                     </div>
@@ -65,22 +64,23 @@ function App() {
             </header>
 
             {/* Main Content */}
-            <main className="app-main">
-                <div className="container">
+            <main className="flex-1 py-12">
+                <div className="max-w-7xl mx-auto px-6">
                     {/* Info Section */}
                     <InfoSection />
 
                     {/* Form Section */}
-                    <div className="form-section card">
-                        <h2 className="section-title">📝 Enter Borrower Details</h2>
+                    <div className="mb-12 animate-fade-in [animation-delay:0.2s] [animation-fill-mode:both] bg-white/[0.03] backdrop-blur-glass border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:shadow-2xl hover:-translate-y-0.5">
+                        <h2 className="text-3xl font-bold mb-8 text-white">📝 Enter Borrower Details</h2>
                         <CreditRiskForm onSubmit={handlePrediction} loading={loading} />
                     </div>
 
+                    {/* Error Display */}
                     {error && (
-                        <div className="error-card card scale-in">
-                            <div className="error-icon">⚠️</div>
-                            <div className="error-message">{error}</div>
-                            <div className="error-hint">
+                        <div className="mb-8 bg-gradient-to-br from-red-500/10 to-red-600/10 border border-red-500/30 rounded-2xl p-8 text-center animate-scale-in">
+                            <div className="text-5xl mb-4">⚠️</div>
+                            <div className="text-xl font-semibold text-red-500 mb-2">{error}</div>
+                            <div className="text-white/50 text-sm">
                                 {apiStatus === 'offline' && (
                                     <>Make sure the backend API server is accessible</>
                                 )}
@@ -94,10 +94,10 @@ function App() {
             </main>
 
             {/* Footer */}
-            <footer className="app-footer">
-                <div className="container">
-                    <p>Powered by Machine Learning • React + FastAPI</p>
-                    <p className="footer-note">
+            <footer className="mt-auto py-12 bg-black/20 backdrop-blur-glass border-t border-white/10 text-center">
+                <div className="max-w-7xl mx-auto px-6">
+                    <p className="text-white/75 mb-2">Powered by Machine Learning • React + FastAPI</p>
+                    <p className="text-sm text-white/50 max-w-2xl mx-auto leading-relaxed">
                         This tool uses advanced ML algorithms for credit risk assessment.
                         Results are predictions and should be used as one factor in lending decisions.
                     </p>
