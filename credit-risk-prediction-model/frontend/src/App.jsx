@@ -76,14 +76,13 @@ function App() {
                         <CreditRiskForm onSubmit={handlePrediction} loading={loading} />
                     </div>
 
-                    {/* Error Display */}
                     {error && (
                         <div className="error-card card scale-in">
                             <div className="error-icon">⚠️</div>
                             <div className="error-message">{error}</div>
                             <div className="error-hint">
                                 {apiStatus === 'offline' && (
-                                    <>Make sure the FastAPI server is running on <code>http://localhost:8000</code></>
+                                    <>Make sure the backend API server is accessible</>
                                 )}
                             </div>
                         </div>
