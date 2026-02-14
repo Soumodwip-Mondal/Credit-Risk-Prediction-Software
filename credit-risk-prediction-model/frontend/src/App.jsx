@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CreditRiskForm from './components/CreditRiskForm';
 import ResultsDisplay from './components/ResultsDisplay';
 import InfoSection from './components/InfoSection';
+import CreditCardIcon from './components/CreditCardIcon';
 import { predictCreditRisk, healthCheck } from './services/api';
 
 function App() {
@@ -55,8 +56,21 @@ function App() {
                     <div className="flex items-center gap-4">
                         <div className="relative">
                             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl animate-pulse"></div>
-                            <div className="relative bg-gradient-to-br from-purple-600 to-blue-600 p-3 rounded-2xl shadow-lg">
-                                <span className="text-3xl">💳</span>
+                            <div className="relative bg-gradient-to-br from-purple-600 to-blue-600 p-3 rounded-2xl shadow-lg flex items-center justify-center">
+                                <svg
+                                    width="32"
+                                    height="32"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="white"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="drop-shadow-lg"
+                                >
+                                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                                    <line x1="2" y1="10" x2="22" y2="10" />
+                                </svg>
                             </div>
                         </div>
                         <div>
