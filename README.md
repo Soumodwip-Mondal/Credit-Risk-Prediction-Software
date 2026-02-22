@@ -1,22 +1,5 @@
 # 💳 Credit Risk Prediction System
 
-<div align="center">
-
-![Credit Risk](https://img.shields.io/badge/ML-Credit%20Risk%20Analysis-blue)
-![Accuracy](https://img.shields.io/badge/Accuracy-93%25-success)
-![Recall](https://img.shields.io/badge/Recall-94%25-success)
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green)
-![React](https://img.shields.io/badge/React-18.2-blue)
-
-**End-to-End ML Solution for Credit Risk Assessment**
-
-[Live Demo](#) • [Documentation](./DEPLOYMENT.md) • [Report Issues](#)
-
-</div>
-
----
-
 ## 📊 Project Overview
 
 A **production-ready machine learning system** that predicts credit default risk with **93% accuracy** and **94% recall**. This project demonstrates end-to-end data science capabilities from exploratory data analysis and model development to deployment of a full-stack web application.
