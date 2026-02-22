@@ -12,7 +12,12 @@ export const predictCreditRisk = async (data) => {
 
         if (!response.ok) {
             const error = await response.json();
-            throw new Error(error.detail || 'Prediction failed');
+            let detail = error.detail;
+            if (Array.isArray(detail)) {
+                // FastAPI validation errors: [{loc, msg, type}, ...]
+                detail = detail.map(e => `${e.loc?.slice(-1)[0]}: ${e.msg}`).join('; ');
+            }
+            throw new Error(detail || 'Prediction failed');
         }
 
         return await response.json();
