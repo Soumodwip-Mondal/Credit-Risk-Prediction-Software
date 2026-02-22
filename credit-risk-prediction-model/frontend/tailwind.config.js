@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: "class",
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,88 +8,48 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Custom color palette matching existing design
-                'accent': {
-                    DEFAULT: '#667eea',
-                    light: '#8b9df6',
-                },
-                'poor': '#ef4444',
-                'average': '#f59e0b',
-                'good': '#10b981',
-                'excellent': '#06b6d4',
+                "primary": "#667eea",
+                "secondary": "#764ba2",
+                "dark-charcoal": "#1E293B",
+                "accent-teal": "#06b6d4",
+                "background-light": "#F8FAFC",
+                "background-dark": "#0a0e1a",
             },
-            backgroundImage: {
-                'gradient-primary': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                'gradient-secondary': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                'gradient-success': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                'gradient-dark': 'linear-gradient(135deg, #0a0614 0%, #1a1428 50%, #0f0a1e 100%)',
+            fontFamily: {
+                "display": ["Inter", "sans-serif"]
             },
-            backdropBlur: {
-                'glass': '10px',
-            },
-            boxShadow: {
-                'glow': '0 0 20px rgba(102, 126, 234, 0.4)',
+            borderRadius: {
+                "DEFAULT": "0.5rem",
+                "lg": "1rem",
+                "xl": "1.5rem",
+                "2xl": "2rem",
+                "3xl": "2.5rem",
+                "4xl": "3.5rem",
+                "full": "9999px"
             },
             keyframes: {
-                fadeIn: {
-                    from: {
-                        opacity: '0',
-                        transform: 'translateY(10px)',
-                    },
-                    to: {
-                        opacity: '1',
-                        transform: 'translateY(0)',
-                    },
+                shimmer: {
+                    '0%': { transform: 'translateX(-100%) rotate(45deg)' },
+                    '100%': { transform: 'translateX(100%) rotate(45deg)' },
                 },
-                slideIn: {
-                    from: {
-                        opacity: '0',
-                        transform: 'translateX(-20px)',
-                    },
-                    to: {
-                        opacity: '1',
-                        transform: 'translateX(0)',
-                    },
+                'pulse-dot': {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.4' },
+                },
+                fadeIn: {
+                    from: { opacity: '0', transform: 'translateY(10px)' },
+                    to: { opacity: '1', transform: 'translateY(0)' },
                 },
                 scaleIn: {
-                    from: {
-                        opacity: '0',
-                        transform: 'scale(0.9)',
-                    },
-                    to: {
-                        opacity: '1',
-                        transform: 'scale(1)',
-                    },
-                },
-                pulse: {
-                    '0%, 100%': {
-                        opacity: '0.5',
-                    },
-                    '50%': {
-                        opacity: '1',
-                    },
-                },
-                spin: {
-                    to: {
-                        transform: 'rotate(360deg)',
-                    },
-                },
-                shimmer: {
-                    from: {
-                        left: '-100%',
-                    },
-                    to: {
-                        left: '100%',
-                    },
+                    from: { opacity: '0', transform: 'scale(0.95)' },
+                    to: { opacity: '1', transform: 'scale(1)' },
                 },
             },
             animation: {
-                'fade-in': 'fadeIn 0.5s ease-out',
-                'slide-in': 'slideIn 0.5s ease-out',
-                'scale-in': 'scaleIn 0.5s ease-out',
-                'pulse-bg': 'pulse 8s ease-in-out infinite',
-                'spin': 'spin 0.8s linear infinite',
-                'shimmer': 'shimmer 0.5s',
+                'shimmer': 'shimmer 3s infinite',
+                'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'fade-in': 'fadeIn 0.5s ease-out forwards',
+                'scale-in': 'scaleIn 0.5s ease-out forwards',
             },
         },
     },

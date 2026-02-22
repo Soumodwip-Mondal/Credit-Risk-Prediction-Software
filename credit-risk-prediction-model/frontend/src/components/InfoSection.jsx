@@ -1,112 +1,69 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const InfoSection = () => {
-    const [activeSection, setActiveSection] = useState(null);
-
-    const toggleSection = (section) => {
-        setActiveSection(activeSection === section ? null : section);
-    };
+    const cards = [
+        {
+            icon: 'hub',
+            title: 'Seamless Integration',
+            description: 'Our SDK connects directly with your legacy SQL databases or modern cloud warehouses in minutes.',
+            linkText: 'Integration Guide',
+            iconBg: 'bg-indigo-50 dark:bg-primary/20',
+            iconGradient: 'from-primary/10',
+            iconColor: 'text-primary',
+            linkColor: 'text-primary',
+        },
+        {
+            icon: 'psychology',
+            title: 'Neural Architecture',
+            description: 'Deep learning models trained on curated financial datasets ensuring unbiased and precise outcomes.',
+            linkText: 'Explore Models',
+            iconBg: 'bg-purple-50 dark:bg-purple-500/20',
+            iconGradient: 'from-secondary/10',
+            iconColor: 'text-secondary dark:text-purple-400',
+            linkColor: 'text-secondary dark:text-purple-400',
+        },
+        {
+            icon: 'security',
+            title: 'Enterprise Security',
+            description: 'SOC2 Type II compliant with end-to-end AES-256 encryption for all sensitive borrower data.',
+            linkText: 'Security Policy',
+            iconBg: 'bg-teal-50 dark:bg-accent-teal/20',
+            iconGradient: 'from-teal-500/10',
+            iconColor: 'text-teal-600 dark:text-accent-teal',
+            linkColor: 'text-teal-600 dark:text-accent-teal',
+        },
+    ];
 
     return (
-        <div className="mb-8">
-            {/* How to Use */}
-            <div
-                className="mb-4 bg-white/[0.03] backdrop-blur-glass border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:shadow-2xl hover:-translate-y-0.5 cursor-pointer select-none"
-                onClick={() => toggleSection('usage')}
-            >
-                <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-white m-0">ℹ️ How to Use This Tool</h3>
-                    <span className="text-2xl font-light text-accent transition-transform duration-300 hover:scale-125">
-                        {activeSection === 'usage' ? '−' : '+'}
-                    </span>
-                </div>
-                {activeSection === 'usage' && (
-                    <div className="mt-6 pt-6 border-t border-white/10 text-white/75 leading-relaxed animate-fade-in">
-                        <ul className="list-none p-0">
-                            {[
-                                { label: 'Age:', desc: 'Enter borrower\'s age (18-100 years)' },
-                                { label: 'Income:', desc: 'Annual income in Indian Rupees (₹)' },
-                                { label: 'Loan Amount:', desc: 'Total loan amount requested' },
-                                { label: 'Loan Tenure:', desc: 'Duration of the loan in months' },
-                                { label: 'Avg DPD:', desc: 'Average number of days past due on previous loans' },
-                                { label: 'Delinquency Ratio:', desc: 'Percentage of delinquent accounts (0-100%)' },
-                                { label: 'Credit Utilization:', desc: 'Percentage of available credit being used' },
-                                { label: 'Open Accounts:', desc: 'Number of currently active loan accounts' },
-                                { label: 'Residence Type:', desc: 'Whether residence is owned, rented, or mortgaged' },
-                                { label: 'Loan Purpose:', desc: 'Reason for taking the loan' },
-                                { label: 'Loan Type:', desc: 'Whether the loan is secured or unsecured' },
-                            ].map((item, idx) => (
-                                <li key={idx} className="py-2 pl-6 relative before:content-['▸'] before:absolute before:left-0 before:text-accent">
-                                    <strong>{item.label}</strong> {item.desc}
-                                </li>
-                            ))}
-                        </ul>
+        <section id="info-section" className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 py-12">
+            {cards.map((card, idx) => (
+                <div
+                    key={idx}
+                    className="glass-card p-10 md:p-12 rounded-3xl md:rounded-4xl group"
+                >
+                    {/* Icon */}
+                    <div className={`w-16 h-16 rounded-2xl ${card.iconBg} flex items-center justify-center mb-8 md:mb-10 relative overflow-hidden`}>
+                        <div className={`absolute inset-0 bg-gradient-to-br ${card.iconGradient} to-transparent dark:hidden`}></div>
+                        <span className={`material-symbols-outlined text-4xl ${card.iconColor} relative z-10`}>{card.icon}</span>
                     </div>
-                )}
-            </div>
 
-            {/* About the AI Model */}
-            <div
-                className="mb-4 bg-white/[0.03] backdrop-blur-glass border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:shadow-2xl hover:-translate-y-0.5 cursor-pointer select-none"
-                onClick={() => toggleSection('model')}
-            >
-                <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-white m-0">🧠 About the AI Model</h3>
-                    <span className="text-2xl font-light text-accent transition-transform duration-300 hover:scale-125">
-                        {activeSection === 'model' ? '−' : '+'}
-                    </span>
-                </div>
-                {activeSection === 'model' && (
-                    <div className="mt-6 pt-6 border-t border-white/10 text-white/75 leading-relaxed animate-fade-in">
-                        <p className="mb-4">This credit risk predictor uses a <strong>Logistic Regression model</strong> optimized with advanced techniques:</p>
-                        <ul className="list-none p-0">
-                            {[
-                                { label: '93% Accuracy:', desc: 'Highly reliable predictions' },
-                                { label: '94% Recall:', desc: 'Excellent at identifying high-risk borrowers' },
-                                { label: 'SMOTE Tomek:', desc: 'Addresses class imbalance in training data' },
-                                { label: 'Optuna Optimization:', desc: 'Hyperparameters tuned for maximum performance' },
-                                { label: 'Feature Engineering:', desc: 'Includes derived metrics like loan-to-income ratio' },
-                            ].map((item, idx) => (
-                                <li key={idx} className="py-2 pl-6 relative before:content-['▸'] before:absolute before:left-0 before:text-accent">
-                                    <strong>{item.label}</strong> {item.desc}
-                                </li>
-                            ))}
-                        </ul>
-                        <p className="mt-4">The model reduces false negatives by 15% compared to baseline approaches, making it ideal for banking and fintech applications.</p>
-                    </div>
-                )}
-            </div>
+                    {/* Title */}
+                    <h3 className="text-xl md:text-2xl font-black dark:font-bold text-dark-charcoal dark:text-white mb-4 md:mb-5">
+                        {card.title}
+                    </h3>
 
-            {/* Technology Stack */}
-            <div
-                className="mb-4 bg-white/[0.03] backdrop-blur-glass border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:shadow-2xl hover:-translate-y-0.5 cursor-pointer select-none"
-                onClick={() => toggleSection('tech')}
-            >
-                <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-white m-0">⚙️ Technology Stack</h3>
-                    <span className="text-2xl font-light text-accent transition-transform duration-300 hover:scale-125">
-                        {activeSection === 'tech' ? '−' : '+'}
-                    </span>
+                    {/* Description */}
+                    <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8 md:mb-10 font-normal">
+                        {card.description}
+                    </p>
+
+                    {/* Link */}
+                    <a className={`inline-flex items-center gap-2 ${card.linkColor} font-bold text-sm group-hover:gap-4 transition-all cursor-pointer`} href="#">
+                        {card.linkText} <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
                 </div>
-                {activeSection === 'tech' && (
-                    <div className="mt-6 pt-6 border-t border-white/10 text-white/75 leading-relaxed animate-fade-in">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {[
-                                { label: 'Frontend:', value: 'React 18 with Vite' },
-                                { label: 'Backend:', value: 'FastAPI (Python)' },
-                                { label: 'ML Framework:', value: 'Scikit-learn' },
-                                { label: 'Styling:', value: 'Tailwind CSS' },
-                            ].map((item, idx) => (
-                                <div key={idx} className="p-4 bg-accent/5 rounded-xl border-l-4 border-accent">
-                                    <strong className="block text-white mb-2">{item.label}</strong>
-                                    <span className="text-white/75">{item.value}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </div>
-        </div>
+            ))}
+        </section>
     );
 };
 
