@@ -11,10 +11,9 @@ function App() {
     const [error, setError] = useState(null);
     const [darkMode, setDarkMode] = useState(() => {
         const saved = localStorage.getItem('theme');
-        return saved ? saved === 'dark' : true; // default dark
+        return saved ? saved === 'dark' : true;
     });
 
-    // Sync dark mode class with <html>
     useEffect(() => {
         const root = document.documentElement;
         if (darkMode) {
@@ -22,12 +21,10 @@ function App() {
         } else {
             root.classList.remove('dark');
         }
-        // Also update body background for immediate visual feedback
         document.body.style.backgroundColor = darkMode ? '#0a0e1a' : '#F8FAFC';
         document.body.style.color = darkMode ? '#e2e8f0' : '#64748B';
         localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     }, [darkMode]);
-
 
     const handlePrediction = async (formData) => {
         setLoading(true);
@@ -62,12 +59,8 @@ function App() {
     return (
         <div className="min-h-screen font-display transition-colors duration-300">
 
-            {/* ═══════════════════════════════════════════════════ */}
-            {/*                   NAVBAR                           */}
-            {/* ═══════════════════════════════════════════════════ */}
             <nav className="fixed top-0 w-full z-50 glass-nav border-b border-white/40 dark:border-white/5 px-6 md:px-8 py-4 md:py-5">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    {/* Logo */}
                     <div className="flex items-center gap-3 md:gap-4">
                         <div className="btn-premium p-2 rounded-xl shadow-lg shadow-indigo-100 dark:shadow-primary/20">
                             <span className="material-symbols-outlined text-white text-2xl block">credit_score</span>
@@ -77,14 +70,6 @@ function App() {
                         </h2>
                     </div>
 
-                    {/* Nav Links */}
-                    <div className="hidden md:flex items-center gap-8 md:gap-10">
-                        <a onClick={() => scrollTo('info-section')} className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-dark-charcoal dark:hover:text-white transition-colors cursor-pointer">Platform</a>
-                        <a onClick={() => scrollTo('info-section')} className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-dark-charcoal dark:hover:text-white transition-colors cursor-pointer">Methodology</a>
-                        <a onClick={() => scrollTo('info-section')} className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-dark-charcoal dark:hover:text-white transition-colors cursor-pointer">Security</a>
-                    </div>
-
-                    {/* Theme Toggle */}
                     <button
                         onClick={toggleTheme}
                         className="relative w-14 h-7 rounded-full bg-slate-200 dark:bg-slate-700 transition-colors duration-300 flex items-center p-1 cursor-pointer"
@@ -101,12 +86,8 @@ function App() {
                 </div>
             </nav>
 
-            {/* ═══════════════════════════════════════════════════ */}
-            {/*                    MAIN                            */}
-            {/* ═══════════════════════════════════════════════════ */}
             <main className="relative overflow-hidden">
 
-                {/* ── Hero Section ── */}
                 <section id="hero-section" className="aurora-hero pt-40 md:pt-48 pb-24 md:pb-32 px-6 md:px-8">
                     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
                         <div className="space-y-8 md:space-y-10">
@@ -136,21 +117,16 @@ function App() {
                             </div>
                         </div>
 
-                        {/* Floating Credit Card */}
                         <CreditCardIcon />
                     </div>
                 </section>
 
-                {/* Section Divider */}
                 <div className="section-divider"></div>
 
-                {/* ── Info Cards ── */}
                 <InfoSection />
 
-                {/* Section Divider */}
                 <div className="section-divider"></div>
 
-                {/* ── Form Section ── */}
                 <section id="form-section" className="max-w-7xl mx-auto px-6 md:px-8 py-12">
                     <div className="glass-container p-8 md:p-16 rounded-3xl md:rounded-4xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-50/50 dark:bg-primary/5 blur-[100px] -mr-48 -mt-48"></div>
@@ -162,10 +138,8 @@ function App() {
                     </div>
                 </section>
 
-                {/* Section Divider */}
                 <div className="section-divider"></div>
 
-                {/* ── Error Display ── */}
                 {error && (
                     <section className="max-w-5xl mx-auto px-6 md:px-8 mb-16">
                         <div className="glass-container rounded-3xl md:rounded-4xl p-8 text-center animate-scale-in">
@@ -177,18 +151,12 @@ function App() {
                     </section>
                 )}
 
-                {/* ── Results Section ── */}
                 {results && <ResultsDisplay results={results} />}
             </main>
 
-            {/* ═══════════════════════════════════════════════════ */}
-            {/*                   FOOTER                           */}
-            {/* ═══════════════════════════════════════════════════ */}
             <footer className="bg-[#F8FAFC] dark:bg-[#0a0e1a] border-t border-slate-100 dark:border-white/5 pt-14 pb-0">
                 <div className="max-w-7xl mx-auto px-6 md:px-10">
-                    {/* Top grid */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 pb-10">
-                        {/* Brand */}
                         <div className="md:col-span-1 space-y-4">
                             <div className="flex items-center gap-2.5">
                                 <div className="btn-premium p-1.5 rounded-lg">
@@ -201,7 +169,6 @@ function App() {
                             </p>
                         </div>
 
-                        {/* Platform */}
                         <div className="md:col-span-1">
                             <h4 className="text-dark-charcoal dark:text-slate-300 font-black mb-5 uppercase text-[10px] tracking-[0.18em]">Platform</h4>
                             <ul className="space-y-3 text-xs font-medium text-slate-500 dark:text-slate-500">
@@ -212,7 +179,6 @@ function App() {
                             </ul>
                         </div>
 
-                        {/* Company */}
                         <div className="md:col-span-1">
                             <h4 className="text-dark-charcoal dark:text-slate-300 font-black mb-5 uppercase text-[10px] tracking-[0.18em]">Company</h4>
                             <ul className="space-y-3 text-xs font-medium text-slate-500 dark:text-slate-500">
@@ -223,7 +189,6 @@ function App() {
                             </ul>
                         </div>
 
-                        {/* Subscribe */}
                         <div className="md:col-span-1">
                             <h4 className="text-dark-charcoal dark:text-slate-300 font-black mb-5 uppercase text-[10px] tracking-[0.18em]">Subscribe</h4>
                             <div className="relative">
@@ -239,11 +204,10 @@ function App() {
                         </div>
                     </div>
 
-                    {/* Bottom disclaimer bar — full width, flush */}
                     <div className="border-t border-slate-200 dark:border-white/5 -mx-6 md:-mx-10 px-6 md:px-10 py-5">
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
                             <p className="text-[9px] text-slate-400 dark:text-slate-600 uppercase tracking-widest font-semibold leading-relaxed max-w-2xl">
-                                DISCLAIMER: THIS PLATFORM PROVIDES AI-GENERATED RISK ASSESSMENTS USING ML PRECISION DATA MODELS. CREDIT RISK SCORES ARE ESTIMATES; NOT FINANCIAL ADVICE. ALWAYS VERIFY WITH CERTIFIED FINANCIAL ADVISORS. © 2024 CREDIT RISK AI — ALL RIGHTS RESERVED.
+                                DISCLAIMER: CREDIT RISK SCORES PROVIDED BY THIS PLATFORM ARE ESTIMATES ONLY AND NOT FINANCIAL ADVICE. ALWAYS VERIFY WITH CERTIFIED FINANCIAL ADVISORS. © 2024 CREDIT RISK AI — ALL RIGHTS RESERVED.
                             </p>
                             <div className="flex gap-6 text-[9px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-600 whitespace-nowrap">
                                 <a onClick={() => scrollTo('hero-section')} className="hover:text-primary dark:hover:text-indigo-400 transition-colors cursor-pointer">Privacy</a>
